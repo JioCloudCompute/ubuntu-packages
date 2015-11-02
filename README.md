@@ -1,8 +1,21 @@
 # ubuntu-packages
 This repository contains Ubuntu packages for our purpose. A new package can be added/deleted. Currently, it is for 64-bit packages.
 
-Flow;
+##Flow
+For flow in details, see the architecture.md.
+It tries to automate the adding a new package (as it involves more than one step) by providing update.sh.
 
-- Add the package into debs/amd64
-- Run update.sh to update the package.
-- Commit into repository, create pull request and merge it into ubuntu-packages.
+##Changes in Ubuntu
+To make ubuntu to pick-up from github, add following entry into `/etc/apt/source.list`
+
+    deb <github repo path>/raw/<branch name>/<package group> amd64/
+
+e.g.
+
+For debs package group
+
+deb https://github.com/JioCloudCompute/ubuntu-packages/raw/master/debs amd64/
+
+It will pick-up the debs packages from the master branch of `JioCloudCompute/ubuntu-packages`.
+
+
